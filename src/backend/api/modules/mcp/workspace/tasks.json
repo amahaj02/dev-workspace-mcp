@@ -1,0 +1,100 @@
+[
+  {
+    "id": "fd2f9d5a-90ae-4544-b9bb-fa341bcd06ad",
+    "title": "Read MCP architecture docs",
+    "project": "mcp-learning",
+    "priority": "high",
+    "completed": true
+  },
+  {
+    "id": "65ae8b6e-fc3b-4e3d-9a4b-e3be651641a6",
+    "title": "Read MCP server docs",
+    "project": "mcp-learning",
+    "priority": "high",
+    "completed": false
+  },
+  {
+    "id": "ea84f7a0-fdc2-4506-b21f-8beddabaf2d6",
+    "title": "Build the tutorial mcp server",
+    "project": "mcp-learning",
+    "priority": "highest",
+    "completed": false
+  },
+  {
+    "id": "594e331f-db8c-49df-b4a9-132632fedbd0",
+    "title": "Build an mcp server of your own",
+    "project": "mcp-building",
+    "priority": "highest",
+    "completed": false
+  },
+  {
+    "id": "0f23d7b4-4ca0-4a9f-867e-b80c39a7c130",
+    "title": "Set up the Python MCP SDK project",
+    "project": "mcp-building",
+    "priority": "high",
+    "completed": false
+  },
+  {
+    "id": "5e5a9701-7a2b-4529-8d70-d9ce9420e7e5",
+    "title": "Define the server tools and resources",
+    "project": "mcp-building",
+    "priority": "high",
+    "completed": false
+  },
+  {
+    "id": "0d8af376-d3f2-4f12-9fbd-cc2fded725f5",
+    "title": "Implement the first custom MCP tool",
+    "project": "mcp-building",
+    "priority": "highest",
+    "completed": false
+  },
+  {
+    "id": "ccc932dc-60c1-4a85-8d22-87afd44fcc91",
+    "title": "Add input validation and error handling",
+    "project": "mcp-building",
+    "priority": "high",
+    "completed": false
+  },
+  {
+    "id": "ce46303f-b663-4b7e-acdf-1fe0378f5282",
+    "title": "Connect the server to an MCP client",
+    "project": "mcp-learning",
+    "priority": "high",
+    "completed": false
+  },
+  {
+    "id": "614d6062-58ea-4da5-aad1-4e371719cfd3",
+    "title": "Test tool calls with sample inputs",
+    "project": "mcp-learning",
+    "priority": "medium",
+    "completed": false
+  },
+  {
+    "id": "b547b327-32ed-4a1c-8a76-538cf305a45f",
+    "title": "Write setup and usage documentation",
+    "project": "mcp-building",
+    "priority": "medium",
+    "completed": false
+  },
+  {
+    "id": "fba097c6-1050-44da-8006-ab881612020d",
+    "title": "Take a break and listen to music",
+    "project": "chill",
+    "priority": "low",
+    "completed": false
+  },
+  {
+    "id": "15a62cdc-3dbd-48b7-9305-3e70979a879e",
+    "title": "Finish the MCP server",
+    "project": "project-dev-workspace-mcp",
+    "priority": "high",
+    "completed": false
+  },
+  {
+    "id": "49760dd1-0f91-417a-8955-c209d8b4de0e",
+    "title": "Blah",
+    "project": "Blah",
+    "priority": "medium",
+    "completed": true
+  }
+]

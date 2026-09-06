@@ -1,0 +1,17 @@
+[
+    {
+        "id": "mcp-learning",
+        "name": "MCP Learning",
+        "description": "Learn MCP by reading docs and building some tutorial clients/servers"
+    },
+    {
+        "id": "mcp-building",
+        "name": "MCP Building",
+        "description": "Build MCP servers of your own using the Py SDK"
+    },
+    {
+        "id": "chill",
+        "name": "Just Chill",
+        "description": "Put your headphones on"
+    }
+]
