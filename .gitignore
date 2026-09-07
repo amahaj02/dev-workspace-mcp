@@ -10,3 +10,11 @@ wheels/
 .venv
 
 .vscode
+.env*
+
+# terraform
+*.tfstate*
+.terraform/
+
+# Keep dependency selections reproducible
+!.terraform.lock.hcl

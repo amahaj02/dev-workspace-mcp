@@ -1,0 +1,90 @@
+name: Terraform Plan and Apply
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "terraform/**"
+      - ".github/workflows/**"
+  workflow_dispatch:
+
+# Required for GitHub OIDC -> AWS STS AssumeRoleWithWebIdentity
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: terraform-main
+  cancel-in-progress: false
+
+jobs:
+  terraform-plan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6.0.2
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v6.2.3
+        with:
+          role-to-assume: ${{ vars.OIDC_ROLE_ARN }}
+          aws-region: ca-central-1
+
+      - name: Verify AWS identity
+        run: aws sts get-caller-identity
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v4.0.1
+        with:
+          terraform_version: "1.14.3"
+
+      - name: Terraform Init
+        working-directory: terraform
+        run: terraform init -input=false
+
+      - name: Terraform Plan
+        working-directory: terraform
+        run: terraform plan -input=false -out=tfplan -var-file=env/dev.tfvars
+
+      - name: Upload Terraform plan
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: terraform-plan
+          path: terraform/tfplan
+          if-no-files-found: error
+          retention-days: 1
+
+  terraform-apply:
+    needs: terraform-plan
+    runs-on: ubuntu-latest
+    environment: main
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6.0.2
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v6.2.3
+        with:
+          role-to-assume: ${{ vars.OIDC_ROLE_ARN }}
+          aws-region: ca-central-1
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v4.0.1
+        with:
+          terraform_version: "1.14.3"
+
+      - name: Terraform Init
+        working-directory: terraform
+        run: terraform init -input=false
+
+      - name: Download Terraform plan
+        uses: actions/download-artifact@v8
+        with:
+          name: terraform-plan
+          path: terraform
+
+      - name: Terraform Apply
+        working-directory: terraform
+        run: terraform apply -input=false tfplan
